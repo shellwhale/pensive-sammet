@@ -1,0 +1,15 @@
+---
+version: "2"
+
+services:
+  tftpd:
+    image: wastrachan/tftpd
+    container_name: tftpd
+    environment:
+      - PUID=1111
+      - PGID=1112
+    volumes:
+      - ./configs/:/data
+    ports:
+      - 69:69/udp
+    restart: unless-stopped
